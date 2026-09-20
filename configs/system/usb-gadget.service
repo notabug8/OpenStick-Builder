@@ -5,9 +5,9 @@ After=sys-kernel-config.mount
 
 [Service]
 ExecStartPre=/usr/sbin/modprobe libcomposite
-ExecStart=/usr/bin/gt load rndis-os-desc.scheme rndis
+ExecStart=/usr/bin/gt load acm-ecm.scheme acm-ecm
 RemainAfterExit=yes
-ExecStop=/usr/bin/gt rm -rf rndis
+ExecStop=/usr/bin/gt rm -rf acm-ecm
 Type=simple
 
 [Install]

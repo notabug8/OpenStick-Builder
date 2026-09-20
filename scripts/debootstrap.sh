@@ -1,7 +1,9 @@
 #!/bin/sh -e
 
 CHROOT=${CHROOT=$(pwd)/rootfs}
-RELEASE=${RELEASE=stable}
+# NOTE: keep in sync with the libconfig runtime package in scripts/setup.sh.
+# bookworm -> libconfig9, trixie -> libconfig11.
+RELEASE=${RELEASE=bookworm}
 HOST_NAME=${HOST_NAME=openstick-debian}
 
 rm -rf ${CHROOT}

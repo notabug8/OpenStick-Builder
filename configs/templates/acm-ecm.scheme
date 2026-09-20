@@ -18,9 +18,9 @@ os_descs :
 strings = ( 
     {
         lang = 0x409;
-        manufacturer = "Foo Inc.";
-        product = "Bar Gadget";
-        serialnumber = "0123456789";
+        manufacturer = "OpenStick";
+        product = "UFI003 Debian Gadget";
+        serialnumber = "ufi003-01";
     } );
 functions : 
 {

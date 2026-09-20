@@ -44,6 +44,13 @@ sed -i "/localhost/ s/$/ ${HOST_NAME}/" ${CHROOT}/etc/hosts
 # setup systemd services
 cp -a configs/system/* ${CHROOT}/etc/systemd/system
 
+# login console on the USB ACM gadget port, so the device stays reachable
+# even when wlan0/usb0 are misconfigured. serial-getty@.service binds to
+# dev-ttyGS0.device, so it idles until the gadget is up.
+mkdir -p ${CHROOT}/etc/systemd/system/getty.target.wants
+ln -sf /lib/systemd/system/serial-getty@.service \
+    ${CHROOT}/etc/systemd/system/getty.target.wants/serial-getty@ttyGS0.service
+
 cp -a scripts/msm-firmware-loader.sh ${CHROOT}/usr/sbin
 
 # setup NetworkManager
